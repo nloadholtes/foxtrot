@@ -5,3 +5,5 @@ Things to think about:
 3. Redoing RMR
 4. Changing to a non-web node
 5. Passing off to a remote queue?
+6. Running Wildy  different apps?
+7. Testbed for Random oneoff ideas?
