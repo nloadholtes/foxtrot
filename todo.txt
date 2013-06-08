@@ -3,3 +3,5 @@ Things to think about:
 1. Playing with bootstrap
 2. Heroku to GAE/EC2 services
 3. Redoing RMR
+4. Changing to a non-web node
+5. Passing off to a remote queue?
