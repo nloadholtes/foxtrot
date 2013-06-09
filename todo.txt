@@ -7,3 +7,6 @@ Things to think about:
 5. Passing off to a remote queue?
 6. Running wildy different apps?
 7. Testbed for random one-off ideas?
+	7a. Aggregrator (public API's, etc.) of stats
+	7b. Name Generator
+	7c. Class based vs Form based views
