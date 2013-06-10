@@ -10,3 +10,4 @@ Things to think about:
 	7a. Aggregrator (public API's, etc.) of stats
 	7b. Name Generator
 	7c. Class based vs Form based views
+	7d. Something in the ORM that encrypts data before it hits the disk?
