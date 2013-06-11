@@ -12,3 +12,5 @@ Things to think about:
 	7c. Class based vs Form based views
 	7d. Something in the ORM that encrypts data before it hits the disk?
 8. Playing with tutorials (to test in a semi-prod environment instead of on a dev machine)
+9. REST services
+	9a. "personal" API
