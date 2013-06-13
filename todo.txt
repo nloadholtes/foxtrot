@@ -15,4 +15,4 @@ Things to think about:
     8a. Following suggestions from the 2scoops book (env settings to prevent messy settings.py, etc.)
 9. REST services
     9a. "personal" API
-
+10. PhantomJS
