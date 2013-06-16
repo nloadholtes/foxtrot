@@ -3,7 +3,7 @@ Things to think about:
 1. Playing with bootstrap
 2. Heroku to GAE/EC2 services
 3. Redoing RMR
-4. Changing to a non-web node
+4. --nevermind, not a good match for this project--
 5. Passing off to a remote queue?
 6. Running wildy different apps?
 7. Testbed for random one-off ideas?
