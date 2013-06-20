@@ -16,3 +16,4 @@ Things to think about:
 9. REST services
     9a. "personal" API
 10. PhantomJS
+11. SSL - Separate charge on heroku
