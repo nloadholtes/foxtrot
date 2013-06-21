@@ -17,3 +17,5 @@ Things to think about:
     9a. "personal" API
 10. PhantomJS
 11. SSL - Separate charge on heroku
+12. Adding OAuth
+    12a. To keep user-personalization data from RMR?
