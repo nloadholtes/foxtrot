@@ -11,6 +11,7 @@ Things to think about:
     7b. Name Generator
     7c. Class based vs Form based views
     7d. Something in the ORM that encrypts data before it hits the disk?
+    7e. Running dxpx/PhantomJS on every commit to look at the changes of the site over time
 8. Playing with tutorials (to test in a semi-prod environment instead of on a dev machine)
     8a. Following suggestions from the 2scoops book (env settings to prevent messy settings.py, etc.)
 9. REST services
