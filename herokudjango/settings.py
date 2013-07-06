@@ -6,7 +6,7 @@ if os.environ.get('DEVELOPMENT_MODE', False):
     DEBUG = True
     TEMPLATE_DEBUG = DEBUG
 else:
-    DEBUG = False
+    DEBUG = True
     TEMPLATE_DEBUG = DEBUG
 
 
