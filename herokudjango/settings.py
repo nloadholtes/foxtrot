@@ -2,8 +2,13 @@
 import os.path
 PROJECT_DIR = os.path.dirname(__file__) # this is not Django setting.
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+if os.environ.get('DEVELOPMENT_MODE', False):
+    DEBUG = True
+    TEMPLATE_DEBUG = DEBUG
+else:
+    DEBUG = False
+    TEMPLATE_DEBUG = DEBUG
+
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
