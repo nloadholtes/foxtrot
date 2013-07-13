@@ -1,7 +1,7 @@
 Things to think about:
 
 1. Playing with bootstrap
-2. Heroku to GAE/EC2 services
+2. ~~Heroku to GAE/EC2 services~~ I think I have a good idea now
 3. Redoing RMR
 4. --nevermind, not a good match for this project--
 5. Passing off to a remote queue?
