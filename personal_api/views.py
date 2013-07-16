@@ -1,5 +1,7 @@
 # Create your views here.
 
+from django.views.generic import TemplateView
 
-def home(req):
-    return "<h1>Hello</h1>"
+
+class AboutView(TemplateView):
+    template_name = "personal_api/about.html"
