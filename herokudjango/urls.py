@@ -15,7 +15,8 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin_for_realz/', include(admin.site.urls)),
+    url(r'^admin/', include('admin_honeypot.urls')),
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     url(r'^personal_api/', AboutView.as_view()),
 )
