@@ -1,12 +1,28 @@
 <html>
 <head>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <style type="text/css">
+        body { background-color:forestgreen; color:white; }
+    </style>
 </head>
 <body>
-<h1>Hello</h1>
+<h1>What is Nick up to?</h1>
 
-Coming soon, more info about this personal api
+This is a collection of the public info that is available about <a href="http://ironboundsoftware.com">Nick Loadholtes</a>. This is a work in progress.
+<div id="twitter-div">
+    Twitter:
+</div>
+<div id="github-div">
+    Github:
+</div>
 
+<script type="text/javascript">
+$(document).ready( changetwitter );
 
+function changetwitter() {
+    $("#twitter-div").css("background-color:red;");
+}
+
+</script>
 </body>
 </html>
