@@ -2,7 +2,7 @@
 <head>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <style type="text/css">
-        body { background-color:forestgreen; color:white; }
+        body { background-color:gray; color:white; }
     </style>
 </head>
 <body>
@@ -11,18 +11,41 @@
 This is a collection of the public info that is available about <a href="http://ironboundsoftware.com">Nick Loadholtes</a>. This is a work in progress.
 <div id="twitter-div">
     Twitter:
+    <div id="twitter-content-div"></div>
 </div>
 <div id="github-div">
     Github:
+    <div id="github-content-div"></div>
 </div>
 
 <script type="text/javascript">
-$(document).ready( changetwitter );
+$(document).ready( function() {changetwitter(); changegithub(); });
 
 function changetwitter() {
-    $("#twitter-div").css("background-color:red;");
+    $("#twitter-div").css({
+        margin: "10px auto",
+        backgroundColor:"red"
+    });
+    $("#twitter-content-div").css({
+        padding:"1em",
+        backgroundColor:"darkred"
+    });
+    $("#twitter-content-div").text("Non functional");
 }
 
+function changegithub() {
+    $("#github-div").css({
+        margin: "10px auto",
+        borderColor: "cyan",
+        backgroundColor: "red", 
+    });
+    $("#github-content-div").css({
+        padding:"1em",
+        backgroundColor:"darkred"
+    });
+
+    $("#github-content-div").text("Non functional");
+}
 </script>
 </body>
 </html>
