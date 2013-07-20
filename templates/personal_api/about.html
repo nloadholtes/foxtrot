@@ -9,13 +9,13 @@
 <h1>What is Nick up to?</h1>
 
 This is a collection of the public info that is available about <a href="http://ironboundsoftware.com">Nick Loadholtes</a>. This is a work in progress.
+<div id="github-div">
+    Github events:
+    <div id="github-content-div"></div>
+</div>
 <div id="twitter-div">
     Twitter:
     <div id="twitter-content-div"></div>
-</div>
-<div id="github-div">
-    Github:
-    <div id="github-content-div"></div>
 </div>
 
 <script type="text/javascript">
@@ -48,6 +48,9 @@ function changegithub() {
         outputtext = "";
         for(x=0; x<10; x++){
             row = data[x]
+            if(row.type === "WatchEvent") {
+                continue
+            }
             outputtext += "<li>" + row["repo"].name + " - " + row["created_at"];
             commits = row.payload.commits
             for(y in row.payload.commits) {
@@ -60,8 +63,6 @@ function changegithub() {
         $("#github-content-div").html(outputtext);
     });
     console.log(event_data)
-    // console.log(event_data.responseJSON()[0]["id"])
-    // $("#github-content-div").text("Non functional");
 }
 </script>
 </body>
