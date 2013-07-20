@@ -18,6 +18,9 @@ def getTweets(request):
     output = {}
     return HttpResponse(json.dumps(output), content_type="application/json")
 
+def _setUserInfo(userinfo, requestdata):
+    userinfo["etag"] = requestdata.headers["etag"]
+    userinfo["output"] = requestdata.json()
 
 def getGitHubEvents(request, user):
     log.debug("User-> %s" % user)
@@ -27,11 +30,15 @@ def getGitHubEvents(request, user):
     if len(userinfo) == 0:
         print("Getting fresh user data")
         requestdata = requests.get('https://api.github.com/users/%s/events' % user)
-        userinfo["etag"] = requestdata.headers["etag"]
-        output = requestdata.json()
-    #Is it a 304
-   
+        _setUserInfo(userinfo, requestdata)
 
-    output = requests.get('https://api.github.com/users/%s/events' % user).json()
+    #Is it a 304
+    headers = {"If-None-Match": userinfo["etag"]}
+    requestdata = requests.get('https://api.github.com/users/%s/events' % user, headers=headers)
+    if requestdata.status_code != 304:
+        _setUserInfo(userinfo, requestdata)
+
+    output = userinfo["output"]
+    #requests.get('https://api.github.com/users/%s/events' % user).json()
 
     return HttpResponse(json.dumps(output), content_type="application/json")
