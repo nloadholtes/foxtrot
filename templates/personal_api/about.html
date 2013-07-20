@@ -37,14 +37,31 @@ function changegithub() {
     $("#github-div").css({
         margin: "10px auto",
         borderColor: "cyan",
-        backgroundColor: "red", 
+        backgroundColor: "#444444", 
     });
     $("#github-content-div").css({
         padding:"1em",
-        backgroundColor:"darkred"
+        backgroundColor:"lightgray",
+        color: "black"
     });
-
-    $("#github-content-div").text("Non functional");
+    event_data = $.getJSON('/personal_api/getGitHubEvents/nloadholtes', function(data) {
+        outputtext = "";
+        for(x=0; x<10; x++){
+            row = data[x]
+            outputtext += "<li>" + row["repo"].name + " - " + row["created_at"];
+            commits = row.payload.commits
+            for(y in row.payload.commits) {
+                outputtext += "<ol>" + commits[y].message;
+                outputtext += " - <a href='https://github.com/" + row["repo"].name + "/commit/" + commits[y].sha + "'>" + commits[y].sha.slice(0,8) + "</a>"
+                outputtext += "</ol>"
+            }
+            outputtext += "</li>"
+        }
+        $("#github-content-div").html(outputtext);
+    });
+    console.log(event_data)
+    // console.log(event_data.responseJSON()[0]["id"])
+    // $("#github-content-div").text("Non functional");
 }
 </script>
 </body>

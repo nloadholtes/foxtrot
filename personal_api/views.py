@@ -16,6 +16,7 @@ def getTweets(request):
 
 
 def getGitHubEvents(request, user):
+    print(user)
     output = requests.get('https://api.github.com/users/%s/events' % user).json()
 
     return HttpResponse(json.dumps(output), content_type="application/json")
