@@ -7,22 +7,58 @@
             color:white;
             font-family: helvetica;
         }
+        #wrapper-div {
+            margin: 0 auto;
+        }
         #github-div {
             background-color: #333;
             margin: 10px auto;
+            float: left;
+            width: 30%;
+            padding: 10px;
+            border: 2px solid #555;
         }
         #github-content-div {
+            margin: 10px auto;
             padding: 1em;
             background-color: #555;
             color: #eee;
+            padding-top: .75em;
         }
+        #twitter-div {
+            margin: 10px auto;
+            background-color: red;
+            float: left;
+            width: 30%;
+            padding: .75em;
+            border: 2px solid darkred;
+        }
+        #twitter-content-div {
+            margin: 10px auto;
+            padding: 1em;
+            background-color: darkred;
+        }
+        #fitbit-div {
+            margin: 10px auto;
+            background-color: red;
+            width: 30%;
+            float: left;
+            padding: .75em;
+            border: 2px solid darkred;
+        }
+        #fitbit-content-div {
+            margin: 10px auto;
+            padding: 1em;
+            background-color: darkred;
+        }
+
     </style>
 </head>
 <body>
 <h1>What is Nick up to?</h1>
 
 This is a collection of the public info that is available about <a href="http://ironboundsoftware.com">Nick Loadholtes</a>. This is a work in progress.
-<span>
+<div id="wrapper-div">
     <div id="github-div">
         Github events:
         <div id="github-content-div"></div>
@@ -31,26 +67,22 @@ This is a collection of the public info that is available about <a href="http://
         Twitter:
         <div id="twitter-content-div"></div>
     </div>
-</span>
+    <div id="fitbit-div">
+        FitBit:
+        <div id="fitbit-content-div"></div>
+    </div>
+</div>
 <script type="text/javascript">
 $(document).ready( function() {changetwitter(); changegithub(); });
 
 function changetwitter() {
-    $("#twitter-div").css({
-        margin: "10px auto",
-        backgroundColor:"red"
-    });
-    $("#twitter-content-div").css({
-        padding:"1em",
-        backgroundColor:"darkred"
-    });
-    $("#twitter-content-div").text("Non functional");
+    $("#twitter-content-div").text("Non functional at this time");
 }
 
 function changegithub() {
     event_data = $.getJSON('/personal_api/getGitHubEvents/nloadholtes', function(data) {
         outputtext = "";
-        for(x=0; x<10; x++){
+        for(x=0; x<5; x++){
             row = data[x]
             if(row.type === "WatchEvent") {
                 continue
@@ -64,6 +96,7 @@ function changegithub() {
             }
             outputtext += "</li>"
         }
+        outputtext += "<a href='https://github.com/nloadholtes'>More info</a>";
         $("#github-content-div").html(outputtext);
     });
     console.log(event_data)
