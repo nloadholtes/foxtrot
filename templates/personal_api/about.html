@@ -2,7 +2,20 @@
 <head>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <style type="text/css">
-        body { background-color:gray; color:white; }
+        body { 
+            background-color:gray; 
+            color:white;
+            font-family: helvetica;
+        }
+        #github-div {
+            background-color: #333;
+            margin: 10px auto;
+        }
+        #github-content-div {
+            padding: 1em;
+            background-color: #555;
+            color: #eee;
+        }
     </style>
 </head>
 <body>
@@ -35,16 +48,6 @@ function changetwitter() {
 }
 
 function changegithub() {
-    $("#github-div").css({
-        margin: "10px auto",
-        borderColor: "cyan",
-        backgroundColor: "#333", 
-    });
-    $("#github-content-div").css({
-        padding:"1em",
-        backgroundColor:"#555",
-        color: "#eee",
-    });
     event_data = $.getJSON('/personal_api/getGitHubEvents/nloadholtes', function(data) {
         outputtext = "";
         for(x=0; x<10; x++){
