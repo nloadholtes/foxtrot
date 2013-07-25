@@ -30,7 +30,6 @@ def getGitHubEvents(request, user):
     userinfo = CACHE.get(user, {})
     #Update user cache if it isn't there
     if len(userinfo) == 0:
-        print("Getting fresh user data")
         requestdata = requests.get('https://api.github.com/users/%s/events' % user)
         _setUserInfo(userinfo, requestdata)
         CACHE[user] = userinfo
@@ -39,7 +38,6 @@ def getGitHubEvents(request, user):
     headers = {"If-None-Match": userinfo["etag"]}
     requestdata = requests.get('https://api.github.com/users/%s/events' % user, headers=headers)
     if requestdata.status_code != 304:
-        print("User info has updated")
         _setUserInfo(userinfo, requestdata)
         CACHE[user] = userinfo
 

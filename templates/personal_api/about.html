@@ -83,7 +83,8 @@ function changetwitter() {
 }
 
 function changegithub() {
-    event_data = $.getJSON('/personal_api/getGitHubEvents/nloadholtes', function(data) {
+    userid = "nloadholtes"
+    event_data = $.getJSON('/personal_api/getGitHubEvents/' + userid, function(data) {
         outputtext = "";
         for(x=0; x<5; x++){
             row = data[x]
@@ -99,7 +100,7 @@ function changegithub() {
             }
             outputtext += "</li>"
         }
-        outputtext += "<a href='https://github.com/nloadholtes'>More info</a>";
+        outputtext += "<a href='https://github.com/" + userid + "'>More info</a>";
         $("#github-content-div").html(outputtext);
     });
     console.log(event_data)
