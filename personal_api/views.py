@@ -33,12 +33,15 @@ def getGitHubEvents(request, user):
         print("Getting fresh user data")
         requestdata = requests.get('https://api.github.com/users/%s/events' % user)
         _setUserInfo(userinfo, requestdata)
+        CACHE[user] = userinfo
 
     #Github has requested that everyone honor the etag
     headers = {"If-None-Match": userinfo["etag"]}
     requestdata = requests.get('https://api.github.com/users/%s/events' % user, headers=headers)
     if requestdata.status_code != 304:
+        print("User info has updated")
         _setUserInfo(userinfo, requestdata)
+        CACHE[user] = userinfo
 
     output = userinfo["output"]
 
