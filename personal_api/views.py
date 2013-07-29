@@ -1,10 +1,13 @@
 # Create your views here.
 import json
-
-from django.views.generic import TemplateView
-from django.http import HttpResponse
-import requests
 import logging
+import os
+
+from django.http import HttpResponse
+from django.views.generic import TemplateView
+import oauth2 as oauth
+import requests
+
 
 log = logging.getLogger()
 
@@ -15,9 +18,30 @@ class AboutView(TemplateView):
     template_name = "personal_api/about.html"
 
 
+def oauth_req(url, key, secret, http_method="GET", post_body=None,
+        http_headers=None):
+    consumer = oauth.Consumer(key=os.environ["CONSUMER_KEY"], secret=os.environ["CONSUMER_SECRET"])
+    token = oauth.Token(key=key, secret=secret)
+    client = oauth.Client(consumer, token)
+
+    resp, content = client.request(
+        url,
+        method=http_method,
+        body=post_body,
+        headers=http_headers,
+        force_auth_header=True
+    )
+    return content
+
+
 def getTweets(request):
-    output = {}
-    return HttpResponse(json.dumps(output), content_type="application/json")
+    home_timeline = oauth_req(
+        'https://api.twitter.com/1.1/statuses/home_timeline.json',
+        os.environ['ACCESS_TOKEN'],
+        os.environ['ACCESS_SECRET']
+    )
+    # url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
+    return HttpResponse(json.dumps(home_timeline), content_type="application/json")
 
 
 def _setUserInfo(userinfo, requestdata):
