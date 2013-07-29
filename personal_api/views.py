@@ -29,7 +29,6 @@ def oauth_req(url, key, secret, http_method="GET", post_body=None,
         method=http_method,
         body=post_body,
         headers=http_headers,
-        force_auth_header=True
     )
     return content
 
@@ -38,7 +37,8 @@ def getTweets(request):
     home_timeline = oauth_req(
         'https://api.twitter.com/1.1/statuses/home_timeline.json',
         os.environ['ACCESS_TOKEN'],
-        os.environ['ACCESS_SECRET']
+        os.environ['ACCESS_SECRET'],
+        post_body="Nothing to see here"
     )
     # url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
     return HttpResponse(json.dumps(home_timeline), content_type="application/json")

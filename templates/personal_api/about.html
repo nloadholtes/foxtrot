@@ -86,6 +86,10 @@
 $(document).ready( function() {changetwitter(); changegithub(); changefitbit();});
 
 function changetwitter() {
+    event_data = $.getJSON('/personal_api/getTweets', function(data) {
+        console.log("Tweets were:")
+        console.log(data)
+    });
     $("#twitter-content-div").text("Non functional at this time");
 }
 
