@@ -7,19 +7,19 @@ Things to think about:
 5. Passing off to a remote queue?
 6. Running wildy different apps?
 7. Testbed for random one-off ideas?
-    7a. Aggregrator (public API's, etc.) of stats
-    7b. Name Generator
-    7c. Class based vs Form based views
-    7d. Something in the ORM that encrypts data before it hits the disk?
-    7e. Running dxpx/PhantomJS on every commit to look at the changes of the site over time
+ 7a. Aggregrator (public API's, etc.) of stats
+ 7b. Name Generator
+ 7c. Class based vs Form based views
+ 7d. Something in the ORM that encrypts data before it hits the disk?
+ 7e. Running dxpx/PhantomJS on every commit to look at the changes of the site over time
 8. Playing with tutorials (to test in a semi-prod environment instead of on a dev machine)
-    8a. Following suggestions from the 2scoops book (env settings to prevent messy settings.py, etc.)
+ 8a. Following suggestions from the 2scoops book (env settings to prevent messy settings.py, etc.)
 9. REST services
-    9a. "personal" API
-        i. ~~Github activity~~
-        ii. Bitbucket activity
-        iii. twitter
-        iv. ???
+ 9a. "personal" API
+   i. ~~Github activity~~
+   ii. Bitbucket activity
+   iii. twitter
+   iv. ???
 10. PhantomJS
     10.a Tests in general
 11. ~~SSL~~ - Separate charge on heroku
