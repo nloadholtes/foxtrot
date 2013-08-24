@@ -88,9 +88,12 @@ $(document).ready( function() {changetwitter(); changegithub(); changefitbit();}
 function changetwitter() {
     event_data = $.getJSON('/personal_api/getTweets', function(data) {
         console.log("Tweets were:")
-        console.log(data)
+        console.log(data[0])
+        var outputtext = "";
+        for(var x=0; x<15; x++) {
+            $("#twitter-content-div").append("<li><a href='https://twitter.com/nloadholtes/status/" + data[x]["id"] + "'>" + data[x]["created_at"].substring(0, 16) +"</a></li>" + data[x]["text"] + "<br/><br/>");
+        }
     });
-    $("#twitter-content-div").text("Non functional at this time");
 }
 
 function changefitbit() {
