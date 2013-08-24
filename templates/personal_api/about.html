@@ -100,7 +100,7 @@ function changetwitter() {
         console.log(data[0])
         var outputtext = "";
         for(var x=0; x<15; x++) {
-            $("#twitter-content-div").append("<li><a href='https://twitter.com/nloadholtes/status/" + data[x]["id"] + "'>" + data[x]["created_at"].substring(0, 16) +"</a></li>" + data[x]["text"] + "<br/><br/>");
+            $("#twitter-content-div").append("<li><a href='https://twitter.com/nloadholtes/status/" + data[x]["id"] + "'>" + data[x]["created_at"].substring(0, 16) +"</a></li><ol>" + data[x]["text"] + "</ol><br/><br/>");
         }
     });
 }
